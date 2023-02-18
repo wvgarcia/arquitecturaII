@@ -1,0 +1,27 @@
+
+
+
+
+void setup(){
+  Serial.begin(9600);
+}
+
+void loop(){
+  Serial.println(F("Aprendiendo Arduino ejercicios de la memoria"));
+  Serial.println(F("El hardware consiste en una placa con un microcontrolador Atmel AVR y puertos de entrada/salida.4"));
+  Serial.println(F("Aprendiendo Arduino ejercicios de la memoria"));
+
+  Serial.println(freeRam());
+  
+  delay(5000);
+}
+
+int freeRam () 
+{
+  extern int __heap_start, *__brkval; 
+  int v; 
+  return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval); 
+}
+
+
+-investigar la función freeRam()
